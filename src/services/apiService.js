@@ -1,7 +1,7 @@
 // apiService.js
 import axios from 'axios';
 
-const API_URL = 'https://ajouchong.aoldacloud.com';
+const API_URL = 'http://ajouchong.com';
 
 //Login
 export const loginAdmin = async (email, password) => {
