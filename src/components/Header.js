@@ -1,12 +1,15 @@
 import React from 'react';
 import './Header.css'; 
 
-const Header = () => {
+const Header = ({ isLoggedIn, onLogout }) => {
     return (
       <header className="main-header">
         <div className="top-bar">
           <div className="top-links">
             <span><a href='/'>메인 페이지</a></span>
+            {isLoggedIn && (
+              <span className="logout-link" onClick={onLogout}>로그아웃</span> // 로그아웃 버튼 추가
+            )}
           </div>
         </div>
         <div className="logo">
