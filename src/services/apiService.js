@@ -1,7 +1,13 @@
 // apiService.js
 import axios from 'axios';
 
-const API_URL = 'http://ajouchong.com';
+const API_URL = 'https://www.ajouchong.com';
+
+// 로컬 스토리지에서 토큰을 가져오는 함수
+const getAuthToken = () => {
+  const token = localStorage.getItem('token');
+  return token ? `Bearer ${token}` : null; // "Bearer <token>" 형식으로 반환
+};
 
 //Login
 export const loginAdmin = async (email, password) => {
@@ -20,7 +26,11 @@ export const loginAdmin = async (email, password) => {
 // Create
 export const createItem = async (endpoint, data) => {
   try {
-    const response = await axios.post(`${API_URL}/api/admin/${endpoint}`, data);
+    const response = await axios.post(`${API_URL}/api/admin/${endpoint}`, data, {
+      headers: {
+        Authorization: getAuthToken(), // 헤더에 토큰 포함
+      },
+    });
     return response.data;
   } catch (error) {
     console.error(`Error creating item in ${endpoint}:`, error);

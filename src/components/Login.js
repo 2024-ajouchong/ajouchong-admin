@@ -17,15 +17,15 @@ const Login = () => {
 
             // 로그인 성공 시 토큰을 로컬 스토리지에 저장하고 로그인 상태를 업데이트
             if (response.code === 1) {
-                const { accessToken, tokenType } = response.data;
-                localStorage.setItem('token', `${tokenType} ${accessToken}`); // Bearer 토큰 형식으로 저장
-
+                const { accessToken } = response.data; // tokenType은 사용하지 않음
+                localStorage.setItem('token', accessToken); // 토큰만 저장
                 setIsLoggedIn(true); // 로그인 상태 true로 설정
-
+            
                 alert('로그인에 성공했습니다.');
             } else {
                 setError('로그인에 실패했습니다.');
             }
+            
         } catch (err) {
             setError('로그인 요청 중 오류가 발생했습니다.');
             console.error(err);

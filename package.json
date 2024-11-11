@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://ajouchong.com",
+  "proxy": "https://www.ajouchong.com",
   "eslintConfig": {
     "extends": [
       "react-app",

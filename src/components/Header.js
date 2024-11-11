@@ -10,7 +10,7 @@ const Header = () => {
           </div>
         </div>
         <div className="logo">
-          <img src="aurum_white.png" alt="아우름 로고" className="logo-image" /> {/* 로고 이미지 추가 */}
+          <a href='/'><img src="aurum_white.png" alt="아우름 로고" className="logo-image" /></a>
         </div>
         <nav className="main-nav">
           <ul>
